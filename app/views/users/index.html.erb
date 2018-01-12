@@ -1,0 +1,47 @@
+<h1>Validation testing</h1>
+
+
+<%= form_with model: @user, local: true do | form| %>
+
+<% if @user.errors.any? %>
+	<% @user.errors.full_messages.each do |message| %>
+		<h3> <%= message %>
+
+	<% end %>
+
+
+<% end %>
+
+
+<table>
+<tr>
+<td><%= form.label :Enter_name %> </td>
+<td><%= form.text_field :name%></td>
+</tr>
+<tr>
+<td><%= form.label :Enter_mobile %> </td>
+<td><%= form.text_field :mobile_no %> </td>
+</tr>
+<tr>
+<td><%= form.label :Age %> </td>
+<td><%= form.text_field :age %> </td>
+</tr>
+<tr>
+<td><%= form.label :Enter_email %> </td>
+<td><%= form.text_field :email %> </td>
+</tr>
+<tr>
+<td><%= form.label :Enter_password %> 
+<td><%= form.password_field :password %> 
+</tr>
+<tr>
+<td><%= form.label :confirm_password %> 
+<td><%= form.password_field :password_confirmation %> 
+</tr>
+<tr>
+<td colspan="2"><%= form.submit :Submit_Data %> 
+</td>
+
+</table>
+
+<% end %>
