@@ -9,7 +9,8 @@ def new
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		redirect_to 'show'
+  		#exit
+  		redirect_to @user
   	else
   		render 'index'
   	end
@@ -19,7 +20,7 @@ def new
 
   def user_params
 
-  	params.require(:user).permit(:name, :mobile, :age, :email, :password,:password_confirmation)
+  	params.require(:user).permit(:name, :mobile, :age, :email, :password,:password_confirmation, :terms)
 
   end
 

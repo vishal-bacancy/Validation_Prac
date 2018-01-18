@@ -1,15 +1,19 @@
-<h1>Validation testing</h1>
+<h1><u>Validation testing</u></h1>
 
 
 <%= form_with model: @user, local: true do | form| %>
 
 <% if @user.errors.any? %>
+
+<h1 style="background-color: red" ><%= pluralize(@user.errors.count, "error found")%> can't save the details</h1>
+
+<ul>
 	<% @user.errors.full_messages.each do |message| %>
-		<h3> <%= message %>
+<li><h4 style="background-color: pink , margin='0px'  > <%= message %></h4></li>
 
 	<% end %>
 
-
+</ul>
 <% end %>
 
 
@@ -20,7 +24,7 @@
 </tr>
 <tr>
 <td><%= form.label :Enter_mobile %> </td>
-<td><%= form.text_field :mobile_no %> </td>
+<td><%= form.text_field :mobile %> </td>
 </tr>
 <tr>
 <td><%= form.label :Age %> </td>
@@ -39,8 +43,12 @@
 <td><%= form.password_field :password_confirmation %> 
 </tr>
 <tr>
-<td colspan="2"><%= form.submit :Submit_Data %> 
-</td>
+<td colspan="2" align="center"><%= form.submit  %> 
+</tr>
+<tr>
+<td colspan="2" align="center"><%= form.check_box :terms %> &nbsp;&nbsp;&nbsp;<%= form.label :Accept_terms_and_condition %> 
+</tr>
+
 
 </table>
 
